@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jaini&family=Noto+Serif+Georgian:wght@100..900&display=swap" rel="stylesheet">
+	<title>Library</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/icon-book-32x32.png">
+	<link rel="stylesheet" href="dist/output.min.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<audio id="audioPlayer" src="">Your browser does not support audio</audio>
+	<header class="header">
+		<h1 class="title">Library</h1>
+		<div>
+			<button id="addBookBtn" class="add-book-btn sound-click" tabindex="0">Add book</button>
+			<dialog class="add-book-modal modal" id="addBookModal">
+				<button class="close-modal-btn sound-click" id="closeAddBookModalBtn" title="Close">
+					<i class="close-modal-btn__icon"></i>
+				</button>
+				<form method="dialog" id="addBookForm">
+					<div>
+						<label for="book-title">Title:</label>
+						<input type="text" id="book-title" name="book-title" required>
+					</div>
+					<div>
+						<label for="book-author">Author:</label>
+						<input type="text" id="book-author" name="book-author" required>
+					</div>
+					<div>
+						<label for="book-img">Image URL:</label>
+						<input type="url" id="book-img" name="book-img" placeholder="https://example-of-url.com" autocomplete="off">
+					</div>
+					<div>
+						<label for="book-pages">Pages:</label>
+						<input type="number" id="book-pages" name="book-pages" min="1" value="1" required>
+					</div>
+					<div>
+						<label for="book-read-pages">Read pages:</label>
+						<input type="number" id="book-read-pages" name="book-read-pages" min="0" max="" value="0" required>
+					</div>
+					<div>
+						<label for="book-read">Read:</label>
+						<input type="checkbox" class="sound-click" id="book-read" name="book-read">
+					</div>
+					<button type="submit" id="addBookSubmit" class="add-book-submit sound-click">Add Book</button>
+				</form>
+			</dialog>
+			<button id="panelBtn" class="header__panel-btn">
+				<div></div>
+				<div></div>
+				<div></div>
+			</button>
+		</div>
+	</header>
+	<div class="content-wrapper">
+		<main class="main">
+			<ul class="books-list" id="booksList">
+				<dialog class="remove-book-modal modal" id="removeBookModal">
+					<button class="close-modal-btn sound-click" id="closeRemoveBookModalBtn" title="Close">
+						<i class="close-modal-btn__icon"></i>
+					</button>
+					<p class="remove-book-verification">Are you sure you want to remove this book from your library?</p>
+					<button class="remove-book-verification-btn remove-book-accept sound-click" id="removeBookAccept">Accept</button>
+					<button class="remove-book-verification-btn remove-book-cancell sound-click" id="removeBookCancell">Cancel</button>
+				</dialog>
+			</ul>
+		</main>
+		<aside id="infoPanel" class="info-panel">
+			<h2 class="info-panel__title">Information</h2>
+			<table class="info-panel__info-table">
+				<tbody>
+					<tr id="infoBooks">
+						<td>Books: </td>
+						<td>0</td>
+					</tr>
+					<tr id="infoReadBooks">
+						<td>Read books: </td>
+						<td>0</td>
+					</tr>
+					<tr id="infoPages">
+						<td>Total pages: </td>
+						<td>0</td>
+					</tr>
+					<tr id="infoReadPages">
+						<td>Read pages: </td>
+						<td>0</td>
+					</tr>
+				</tbody>
+			</table>
+			<a class="attribution" href="https://github.com/xXOsielXx" title="Osiel's Github">Copyright © Osiel Hernández</a>
+		</aside>
+	</div>
+</body>
+</html>
