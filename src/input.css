@@ -208,7 +208,7 @@ body {
 }
 
 .remove-book-cancell {
-	background-color: var(--color-light-gray);
+	background-color: var(--color-very-light-gray);
 }
 
 .close-modal-btn {
