@@ -26,7 +26,6 @@ bodyElement.addEventListener("click", e => {
 
 	if (book) {
 		index = book.dataset.index;
-		console.log(index)
 		const switchElement = e.target.closest(".switch");
 
 		if (!switchElement && !bookActive) {
@@ -90,8 +89,6 @@ booksList.addEventListener("input", e => {
 	const readPagesBookInput = e.target.closest(".read-pages-book-input");
 
 	if (readPagesBookInput) {
-		const index = Book.dataset.index;
-
 		if (!e.target.validity.valid) {
 			if (e.target.value > Library[index].pages) {
 				e.target.value = Library[index].pages
