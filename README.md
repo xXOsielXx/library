@@ -9,7 +9,7 @@ The Virtual Library project is a web-based application that allows users to crea
 
 ## Link
 
-![](https://xxosielxx.github.io/library)
+https://xxosielxx.github.io/library
 
 ## Features
 
