@@ -1,6 +1,7 @@
 const bodyElement = document.querySelector("body");
 const audioPlayer = document.querySelector("#audioPlayer");
 let currentBook = null;
+let index = null;
 
 bodyElement.addEventListener("click", e => {
 	// Sound buttons
@@ -24,6 +25,8 @@ bodyElement.addEventListener("click", e => {
 	const book = e.target.closest(".book");
 
 	if (book) {
+		index = book.dataset.index;
+		console.log(index)
 		const switchElement = e.target.closest(".switch");
 
 		if (!switchElement && !bookActive) {
@@ -35,8 +38,6 @@ bodyElement.addEventListener("click", e => {
 			currentBook.querySelector(".remove-book-btn").tabIndex = 0;
 		}
 		else if (e.target.classList.contains("read")) {
-			const index = book.dataset.index;
-
 			audioPlayer.src = "./assets/sounds/toggle-switch.wav";
 			audioPlayer.play();
 
@@ -64,6 +65,17 @@ bodyElement.addEventListener("click", e => {
 		}
 		else if (removeBookAccept) {
 			currentBook.remove();
+			Library.splice(index, 1);
+			bookIndex -= 1;
+			updateInfoPanel();
+
+			const books = document.querySelectorAll(".book");
+			books.forEach(book => {
+				if (book.dataset.index > 0) {
+					book.dataset.index = book.dataset.index - 1;
+				}
+			})
+
 			removeBookModal.close();
 		}
 		else if (removeBookCancell) {
